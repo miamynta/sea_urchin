@@ -19,7 +19,10 @@ Contact for this repository: mia.bengtsson@uni-greifswald.de
 ## Software dependencies
 
 * R version: 4.4.1
-* In case you use Ubuntu, install the packages `sudo apt-get install libtiff-dev libfontconfig1-dev`. Possibly, depending on the Ubuntu version, you have the add the include command to a file `~/R/Makevars` with the content: ```PKG_CFLAGS := $(shell pkg-config --cflags freetype2)
+* In case you use Ubuntu, install the packages `sudo apt-get install libtiff-dev libfontconfig1-dev`. Possibly, depending on the Ubuntu version, you have the add the include command to a file `~/R/Makevars` with the content: 
+
+```
+PKG_CFLAGS := $(shell pkg-config --cflags freetype2)
 PKG_LIBS := $(shell pkg-config --libs freetype2)
 
 CFLAGS += $(PKG_CFLAGS)
