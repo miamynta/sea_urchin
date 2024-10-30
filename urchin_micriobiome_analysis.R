@@ -2,10 +2,12 @@
 # Contact: mia.bengtsson@uni-greifswald.de
 # Date: October 30th 2024
 
+setwd("~/git/sea_urchin") # adapt path to your working directory
+
 #load data
-seq<-read.csv("/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/urchin_seqtab.csv", header=T, row.names = 1)
-meta<-read.csv("/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/urchin_map.csv", header=T, row.names = 1)
-tax<-read.csv("/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/urchin_tax.csv", header=T, row.names = 1)
+seq<-read.csv("urchin_seqtab.csv", header=T, row.names = 1)
+meta<-read.csv("urchin_map.csv", header=T, row.names = 1)
+tax<-read.csv("urchin_tax.csv", header=T, row.names = 1)
 
 #sequencing depth
 meta$libsize<-rowSums(seq)
@@ -81,7 +83,6 @@ mod.hsd
 plot(mod.hsd)
 
 library(devtools)
-#install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
 library(pairwiseAdonis)
 pmod<-pairwise.adonis2(seq4n~treatment, data = meta2)
 pmod2<-pairwise.adonis2(seq4n[7:36,]~treatment*tank, meta2[7:36,]) 
@@ -440,22 +441,22 @@ axis(1, at=1:13, pos=50,cex=0.9, labels = c("Alphaproteobacteria","Gammaproteoba
 
 #core community identification (frequency-abundance)
 
-freq16<-apply(seq6>0, 2, sum)
-abund16<-colSums(seq6)
+freq16<-apply(seq4>0, 2, sum)
+abund16<-colSums(seq4)
 plot(abund16, freq16, log = "x")
-tax2[which(freq16==nrow(seq6)),]
-tax2[which(freq16==nrow(seq6)-1),]
-tax2[which(freq16==nrow(seq6)-2),]
-tax2[which(freq16==nrow(seq6)-3),]
+tax2[which(freq16==nrow(seq4)),]
+tax2[which(freq16==nrow(seq4)-1),]
+tax2[which(freq16==nrow(seq4)-2),]
+tax2[which(freq16==nrow(seq4)-3),]
 
 
 #how much percentage are core ASVs out of all?
 
-sum(seq6$X1)/sum(seq6)
-sum(seq6$X9)/sum(seq6)
-sum(seq6$X4)/sum(seq6)
-sum(seq6$X7)/sum(seq6)
-sum(seq6$X8)/sum(seq6)
+sum(seq4$X1)/sum(seq4)
+sum(seq4$X9)/sum(seq4)
+sum(seq4$X4)/sum(seq4)
+sum(seq4$X7)/sum(seq4)
+sum(seq4$X8)/sum(seq4)
 
 # how many of the reads are eukaryotic?
 
