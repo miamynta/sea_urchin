@@ -1,3 +1,7 @@
+# Author: Mia M. Bengtsson
+# Contact: mia.bengtsson@uni-greifswald.de
+# Date: October 30th 2024
+
 #load data
 seq<-read.csv("/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/urchin_seqtab.csv", header=T, row.names = 1)
 meta<-read.csv("/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/urchin_map.csv", header=T, row.names = 1)

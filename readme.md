@@ -16,6 +16,15 @@ Contact for this repository: mia.bengtsson@uni-greifswald.de
    * `urchin_seqtab.csv` - ASV table
    * `urchin_tax.csv` - taxonomic classification of ASVs
 
+## Software dependencies
+
+   * R version ...
+   * R-packages: vegan, devtools, pairwiseAdonis, phyloseq, DESeq2, ggplot2
+
+## Data analysis documentation
+
+The file urchin_microbiome_analysis.R contains all commands that were used to analyse the sea urchin microbiome data.
+
 ## How to obtain a copy of this repository
 
 On your local machine with git installed, execute in a terminal:
