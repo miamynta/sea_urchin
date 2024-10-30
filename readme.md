@@ -12,22 +12,23 @@ Contact for this repository: mia.bengtsson@uni-greifswald.de
 
 ## Data files contained in this repository
 
-   * `urchin_map.csv` - contextual data including information on treatments
-   * `urchin_seqtab.csv` - ASV table
-   * `urchin_tax.csv` - taxonomic classification of ASVs
+* `urchin_map.csv` - contextual data including information on treatments
+* `urchin_seqtab.csv` - ASV table
+* `urchin_tax.csv` - taxonomic classification of ASVs
 
 ## Software dependencies
 
-   * R version: 4.4.1
-   * In case you use Ubuntu, install the packages `sudo apt-get install libtiff-dev libfontconfig1-dev`. Possibly, depending on the Ubuntu version, you have the add the include command to a file `~/R/Makevars` with the content: ```PKG_CFLAGS := $(shell pkg-config --cflags freetype2)
+* R version: 4.4.1
+* In case you use Ubuntu, install the packages `sudo apt-get install libtiff-dev libfontconfig1-dev`. Possibly, depending on the Ubuntu version, you have the add the include command to a file `~/R/Makevars` with the content: ```PKG_CFLAGS := $(shell pkg-config --cflags freetype2)
 PKG_LIBS := $(shell pkg-config --libs freetype2)
 
 CFLAGS += $(PKG_CFLAGS)
 LDFLAGS += $(PKG_LIBS)
 ```
-   * R-packages: `install.packages("ragg", "vegan", "devtools", "ggplot2", "BiocManager")`
-   * After loading `library(BiocManager)`, install: `BiocManager::install("phyloseq"); BiocManager::install("DESeq2")` 
-   * Install from github after loading `library(devtools)`: `install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")`
+
+* R-packages: `install.packages("ragg", "vegan", "devtools", "ggplot2", "BiocManager")`
+* After loading `library(BiocManager)`, install: `BiocManager::install("phyloseq"); BiocManager::install("DESeq2")` 
+* Install from github after loading `library(devtools)`: `install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")`
 
 ## Data analysis documentation
 
