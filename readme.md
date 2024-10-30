@@ -2,21 +2,19 @@
 
 This manuscripts contains amplicon raw data and an R script for analyzing data for the following manuscript:
 
-*Sea urchin intestinal bacterial communities depend on seaweed diet and contain nitrogen-fixing symbionts*
+**Sea urchin intestinal bacterial communities depend on seaweed diet and contain nitrogen-fixing symbionts**
 
 by
 
-Bengtsson, Mia; University of Greifswald, Institute of Microbiology;
-Institute of Marine Biotechnology, Marine Functional Genomics
-Helgesen, Marita; University of Oslo, Department of Biosciences
-Wang, Haitao; University of Greifswald, Institute of Microbiology
-Fredriksen, Stein; University of Oslo, Department of Biosciences
-Norderhaug, Kjell Magnus; Institute of Marine Research, Benthic
-Communities
+Mia Bengtsson, Marita Helgesen, Haitao Wang, Stein Fredriksen, Kjell Magnus Norderhaug
 
-<will insert reference to manuscript, authors, and contact person>
+Contact for this repository: mia.bengtsson@uni-greifswald.de
 
-<will summarize purpose of provided scripts>
+## Data files contained in this repository
+
+   * `urchin_map.csv` - contextual data including information on treatments
+   * `urchin_seqtab.csv` - ASV table
+   * `urchin_tax.csv` - taxonomic classification of ASVs
 
 ## How to obtain a copy of this repository
 
