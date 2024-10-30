@@ -52,7 +52,6 @@ summary(aov(log(meta2$Rrichness)~meta2$treatment))
 TukeyHSD(aov(log(meta2$Rrichness)~meta2$treatment))
 
 hist(meta2$evenness)
-#hist(log(meta2$evenness))
 summary(aov(log(meta2$evenness)~meta2$treatment))
 TukeyHSD(aov(log(meta2$evenness)~meta2$treatment))
 
@@ -112,11 +111,6 @@ phylum1$Other<-rowSums(Other)
 phylum_norm<-data.frame(apply(phylum1,FUN="/",MARGIN=2, rowSums(phylum1)))
 summary(rowSums(phylum_norm))
 
-#sort according to sites
-#phylum_norm$ids<-meta1$tnitrate
-#phylum_norm<-phylum_norm[ order(phylum_norm$ids), ]
-#phylum_norm<-phylum_norm[,1:ncol(phylum_norm)-1]
-
 #plot
 quartz(7,14)
 par(mfrow=c(1, 2), mar=c(2,3,2,2))
@@ -154,10 +148,6 @@ phylum1$Other<-rowSums(Other)
 phylum_norm<-data.frame(apply(phylum1,FUN="/",MARGIN=2, rowSums(phylum1)))
 summary(rowSums(phylum_norm))
 
-#sort according to sites
-#phylum_norm$ids<-meta1$tnitrate
-#phylum_norm<-phylum_norm[ order(phylum_norm$ids), ]
-#phylum_norm<-phylum_norm[,1:ncol(phylum_norm)-1]
 
 #plot
 quartz(7,14)
@@ -248,11 +238,6 @@ palmaria_res = results(test_urchin, cooksCutoff = FALSE, alpha=alpha, contrast =
 sigtab_palmaria = palmaria_res[which(palmaria_res$padj < alpha), ]
 sigtab_palmaria = cbind(as(sigtab_palmaria, "data.frame"), as(tax_table(phy_urchin)[rownames(sigtab_palmaria), ], "matrix"))
 
-#write.csv(sigtab_before, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_before.csv")
-#write.csv(sigtab_fucus, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_fucus.csv")
-#write.csv(sigtab_palmaria, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_palmaria.csv")
-#write.csv(sigtab_saccharina, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_saccharina.csv")
-
 fucus_saccharina_res = results(test_urchin, cooksCutoff = FALSE, alpha=alpha, contrast = c("treatment", "fucus","saccharina"))
 sigtab_fucus_saccharina = fucus_saccharina_res[which(fucus_saccharina_res$padj < alpha), ]
 sigtab_fucus_saccharina = cbind(as(sigtab_fucus_saccharina, "data.frame"), as(tax_table(phy_urchin)[rownames(sigtab_fucus_saccharina), ], "matrix"))
@@ -264,11 +249,6 @@ sigtab_fucus_palmaria = cbind(as(sigtab_fucus_palmaria, "data.frame"), as(tax_ta
 saccharina_palmaria_res = results(test_urchin, cooksCutoff = FALSE, alpha=alpha, contrast = c("treatment", "saccharina","palmaria"))
 sigtab_saccharina_palmaria = saccharina_palmaria_res[which(saccharina_palmaria_res$padj < alpha), ]
 sigtab_saccharina_palmaria = cbind(as(sigtab_saccharina_palmaria, "data.frame"), as(tax_table(phy_urchin)[rownames(sigtab_saccharina_palmaria), ], "matrix"))
-
-#write.csv(sigtab_fucus_saccharina, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_fucus_saccharina.csv")
-#write.csv(sigtab_fucus_palmaria, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_fucus_palmaria.csv")
-#write.csv(sigtab_saccharina_palmaria, "/Users/Mia/Dropbox/jobb/Greifswald/Sea_urchins/R-files/sigtab_saccharina_palmaria.csv")
-
 
 #make a table with all the differentially abundant ASVs
 sigASV_all<-unique(c(rownames(sigtab_fucus), rownames(sigtab_palmaria), rownames(sigtab_saccharina), rownames(sigtab_before)))
@@ -374,9 +354,6 @@ plot(x=1:13, y=seq(-40, 40, length.out=13), type="n",ylab = "log2-Fold Change", 
 abline(a=0, b=0, lty=2)
 symbols((sigtab_palmaria$phylum[sigtab_palmaria$log2FoldChange<0]), sigtab_palmaria$log2FoldChange[sigtab_palmaria$log2FoldChange<0], circles=radius[sigtab_palmaria$log2FoldChange<0], inches=F , ylab = "log2-Fold Change", xlab="", xlim = c(0,13 ), bg=alpha("khaki1", 0.6), add=T)
 symbols((sigtab_palmaria$phylum[sigtab_palmaria$log2FoldChange>0]), sigtab_palmaria$log2FoldChange[sigtab_palmaria$log2FoldChange>0], circles=radius[sigtab_palmaria$log2FoldChange>0], inches=F , ylab = "log2-Fold Change", xlab="", xlim = c(0,13  ), bg=alpha("tomato", 0.6), ylim = c(-40,40), xaxt="n", add=T)
-#text( jitter(sigtab_palmaria$phylum[sigtab_palmaria$log2FoldChange<0]), sigtab_palmaria$log2FoldChange[sigtab_palmaria$log2FoldChange<0], labels=rownames(sigtab_palmaria), cex=0.5)
-#text( jitter(sigtab_palmaria$phylum[sigtab_palmaria$log2FoldChange>0]), sigtab_palmaria$log2FoldChange[sigtab_palmaria$log2FoldChange>0], labels=rownames(sigtab_palmaria), cex=0.5)
-
 
 text(-0.3, 49, adj=0,"Palmaria")
 text(-0.3, -35,adj=0, "Control")
